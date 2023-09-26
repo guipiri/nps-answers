@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="https://bplus-logos.s3.amazonaws.com/jogajunto/favicon.png"
+    />
+    <title>Joga Junto</title>
+  </head>
+  <body>
+    <header>
+      <div id="navbarup" class="flex-center">
+        <div id="navbarlogo" class="flex-center">
+          <a href="https://jogajunto.net">
+            <img
+              id="logo"
+              alt="logo"
+              src="https://bplus-logos.s3.amazonaws.com/jogajunto/icon.png"
+            />
+          </a>
+        </div>
+      </div>
+      <div id="navbardep" class="flex-center"></div>
+    </header>
+    <div class="global-conteiner">
+      <form id="answerForm">
+        <label id="nameLabel">O que te motivou a dar esta nota?</label>
+        <!-- <input type="text" /> -->
+        <textarea
+          id="answer"
+          placeholder="Digite a resposta aqui..."
+          maxlength="500"
+          rows="4"
+          required
+        ></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+      <div id="congrats" class="none">
+        <p>Resposta enviada. Obrigado!</p>
+      </div>
+    </div>
+    <footer class="flex-center">
+      <img src="./assets/logo.png" />
+      <span>© 2023 - JogaJunto</span>
+    </footer>
+    <div id="loading" class="none flex-center">
+      <img src="./assets/loading.png" />
+    </div>
+    <script src="./js/index.js"></script>
+  </body>
+</html>
