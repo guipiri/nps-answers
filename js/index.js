@@ -1,3 +1,5 @@
+const appScriptUrl = "https://script.google.com/macros/s/AKfycbza3XK1DlJNJXZTdP_9HAM4D9tD1uxc4GeE-dEDwcc7ZXLqKB0lY2yLULYkFrD4miY3/exec"
+
 function handleQuestion() {
   const href = window.location.href.split("?")[1];
   const paramsUrlBack = location.href.split("?")[2] || "";
@@ -5,11 +7,12 @@ function handleQuestion() {
     const query = href.split("&");
     query.sort();
     const params = {
-      id: query[0].split("=")[1],
-      name: query[1].split("=")[1],
-      score: query[2].split("=")[1],
-      urlBack: `${query[3].split("=")[1]}?${paramsUrlBack}`,
-      username: query[4].split("=")[1],
+      action: query[0].split("=")[1],
+      id: query[1].split("=")[1],
+      name: query[2].split("=")[1],
+      score: query[3].split("=")[1],
+      urlBack: `${query[4].split("=")[1]}?${paramsUrlBack}`,
+      username: query[5].split("=")[1],
     };
     const { name, score } = params;
     const question = document.getElementById("nameLabel");
@@ -32,14 +35,14 @@ function handleSubmit(e) {
   document.getElementById("loading").classList.toggle("none");
   e.preventDefault();
   const answer = document.getElementById("answer").value;
-  const { id, name, score, urlBack, username } = handleQuestion();
+  const {action, id, name, score, urlBack, username } = handleQuestion();
   const options = {
     method: "POST",
     body: JSON.stringify([id, name, score, answer, username]),
     mode: "no-cors",
   };
   fetch(
-    "https://script.google.com/macros/s/AKfycbxdn0MZE6CmjauHIOlsn_OZq_XyshVcSupNV9MVQwZgpbsVcZ4-ZSn23yKFX2L_NotG/exec?action=nps",
+    `${appScriptUrl}?action=${action}`,
     options
   ).then(() => {
     document.getElementById("congrats").classList.toggle("none");
