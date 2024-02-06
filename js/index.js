@@ -7,7 +7,7 @@ function handleQuestion() {
   if (href) {
     const query = href.split("&");
     query.sort();
-    console.log(query);
+    // console.log(query);
     const params = {
       action: query[0].split("=")[1],
       id: query[1].split("=")[1],
